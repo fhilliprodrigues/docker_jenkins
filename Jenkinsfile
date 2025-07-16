@@ -11,9 +11,9 @@ pipeline {
                 git url: 'https://github.com/fhilliprodrigues/docker_jenkins.git', branch: 'main'
             }
         }
-        stage('Delete running container') {
+        stage('Delete running container and image') {
             steps {
-                sh 'docker rm -f webapp'
+                sh 'docker rm -f webapp && docker rmi webapp'
             }
         }
         stage('Build Docker Image') {
