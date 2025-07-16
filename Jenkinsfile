@@ -21,7 +21,7 @@ pipeline {
         stage('Run Docker Image') {
             steps {
                 script {
-                    dockerImage.run("--name webapp")
+                    dockerImage.run("-p 80:80 --name webapp")
                 }
             }
         }
