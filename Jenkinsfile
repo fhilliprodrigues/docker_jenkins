@@ -26,7 +26,7 @@ pipeline {
         stage('Run Docker Image') {
             steps {
                 script {
-                    dockerImage.run("-p 80:80 --name webapp")
+                    dockerImage.run("-p 80:80 --name webapp -v vol-webapp:/usr/share/nginx/html")
                 }
             }
         }
