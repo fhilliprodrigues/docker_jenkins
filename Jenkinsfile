@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Clear workspace') {
+            steps {
+                deleteDir()
+            }
+        }
         stage('Clone Repository') {
             steps {
                 git url: 'https://github.com/fhilliprodrigues/docker_jenkins.git', branch: 'main'
